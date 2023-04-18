@@ -1,0 +1,6 @@
+/* Central Store of Color & Other Variables */
+
+:root {
+    /* border: 1px red solid; */
+    --mainBackground: white;
+}

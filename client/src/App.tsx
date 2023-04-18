@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './header/header';
+import Solve from './pages/solve/solve';
+import MyPuzzles from './pages/my-puzzles/my-puzzles';
+import CreatePuzzle from './pages/create-puzzle/create-puzzle';
+import Help from './pages/help/help';
+import Footer from './footer/footer';
 
 function App() {
+
+  const [currentPage, setPage] = useState('Solve')
+
+  const pages: { [index: string]: any } = {
+    'Solve':<Solve/>,
+    'My Puzzles':<MyPuzzles/>,
+    'Create a Puzzle':<CreatePuzzle/>,
+    'Help':<Help/>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="wrapper">
+      <Header/>
+      <main>
+        {pages[currentPage]}
+      </main>
+      <Footer/>
     </div>
   );
 }
